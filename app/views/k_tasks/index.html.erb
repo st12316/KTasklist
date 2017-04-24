@@ -1,0 +1,12 @@
+<h1>タスク一覧</h1>
+
+<ul>
+  
+<% @k_tasks.each do |k_task| %>
+
+    <li> <%= link_to k_task.id, k_task %> : <%= k_task.content %> ( <%= k_task.status %> ) </li>
+<% end %>
+
+</ul>
+
+<%= link_to '新規タスクの投稿', new_k_task_path %>
