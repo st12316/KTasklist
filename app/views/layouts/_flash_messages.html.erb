@@ -1,6 +1,5 @@
 <% flash.each do |k_task_type, k_task| %>
 
-  <div>
-<%= k_task %>
-</div>
+  <div class="alert alert- <%= k_task_type %>"><%= k_task %></div>
+  
 <% end %>

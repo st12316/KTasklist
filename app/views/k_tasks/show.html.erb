@@ -2,13 +2,20 @@
 <%= @k_task.id %>
  のタスク詳細ページ</h1>
 
-<p>タスク:
-<%= @k_task.content %>
-</p>
-<p>ステータス:
-<%= @k_task.status %>
-</p>
+<table class="table table-bordered">
+  <tr>
+    <th>id</th>
+    <td><%= @k_task.id %></td>
+  </tr>
+  <tr>
+    <th>タスク</th>
+    <td><%= @k_task.content %></td>
+  </tr>
+  <tr>
+    <th>ステータス</th>
+    <td><%= @k_task.status %></td>
+  </tr>
+</table>
 
-<%= link_to '一覧に戻る', k_tasks_path %>
-<%= link_to 'このメッセージを編集する', edit_k_task_path(@k_task) %>
-<%= link_to 'このメッセージを削除する', @k_task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }%>
+<%= link_to 'このメッセージを編集する', edit_k_task_path(@k_task), class: 'btn btn-default' %>
+<%= link_to 'このメッセージを削除する', @k_task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

@@ -1,12 +1,29 @@
 <h1>タスク一覧</h1>
+<% if @k_tasks.any? %>
 
-<ul>
-  
-<% @k_tasks.each do |k_task| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>タスク</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @k_tasks.each do |k_task| %>
+        <tr>
+          <td> <%= link_to k_task.id, k_task %></td>
+          <td> <%= k_task.content %> </td>
+          <td> <%= k_task.status %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-    <li> <%= link_to k_task.id, k_task %> : <%= k_task.content %> ( <%= k_task.status %> ) </li>
+  <div>
+    <%= paginate @k_tasks %>
+  </div>
 <% end %>
 
-</ul>
-
-<%= link_to '新規タスクの投稿', new_k_task_path %>
+<%= link_to '新規タスクの投稿', new_k_task_path, class: "btn btn-primary" %>
