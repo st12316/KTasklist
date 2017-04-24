@@ -13,18 +13,6 @@ class KTasksController < ApplicationController
   end
   
   def create
-    @k_task = KTask.new(message_params)
-
-    if @k_task.save
-      flash[:success] = 'KTask が正常に投稿されました'
-      redirect_to @k_task
-    else
-      flash.now[:danger] = 'KTask が投稿されませんでした'
-      render :new
-    end
-  end
-  
-  def create
     @k_task = KTask.new(k_task_params)
 
     if @k_task.save
